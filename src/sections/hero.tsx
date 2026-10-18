@@ -44,8 +44,8 @@ export function Hero() {
           </div>
 
           <h1 className="display w-full max-w-[15ch] text-[clamp(3.25rem,8.15vw,8.75rem)] text-foreground">
-            <span className="line-mask"><span className="hero-line-inner block">Production backends</span></span>
-            <span className="line-mask"><span className="hero-line-inner block"><span className="text-ember">built safe</span> to change.</span></span>
+            <span className="line-mask"><span className="hero-line-inner block">Full stack web apps</span></span>
+            <span className="line-mask"><span className="hero-line-inner block"><span className="text-ember">built end</span> to end.</span></span>
           </h1>
 
           <div className="mt-8 grid gap-8 border-t border-border pt-6 lg:grid-cols-[minmax(0,.78fr)_minmax(20rem,.22fr)] lg:items-end">

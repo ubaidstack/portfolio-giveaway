@@ -27,7 +27,7 @@ export function SiteFooter() {
             </div>
           </div>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Backend engineer building production Laravel systems that stay safe to change.
+            Full stack developer building fast, responsive web applications.
           </p>
           <p className="mt-4 font-mono text-[0.66rem] uppercase tracking-wide text-muted-foreground">
             {person.location}
@@ -61,16 +61,6 @@ export function SiteFooter() {
                 className="group inline-flex items-center gap-1.5 text-sm text-foreground/80 transition-colors duration-300 hover:text-ember"
               >
                 Email <ArrowUpRight01Icon className="size-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={person.social.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-1.5 text-sm text-foreground/80 transition-colors duration-300 hover:text-ember"
-              >
-                LinkedIn <ArrowUpRight01Icon className="size-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
               </a>
             </li>
             <li>

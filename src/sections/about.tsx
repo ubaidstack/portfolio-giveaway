@@ -1,4 +1,4 @@
-import { education } from "@/lib/content"
+import { education, person } from "@/lib/content"
 import { useGsap } from "@/lib/use-gsap"
 
 export function About() {
@@ -40,15 +40,15 @@ export function About() {
 
         <div className="mt-10 grid gap-8 lg:-mt-6 lg:grid-cols-[minmax(12rem,.24fr)_minmax(0,.76fr)] lg:items-center lg:gap-14">
           <p className="max-w-[18rem] text-lg leading-relaxed text-muted-foreground lg:pt-20">
-            I care about the parts users never see — permissions, data paths, and failure states.
+            I build responsive interfaces and ship them end to end — from UI to deployment.
           </p>
 
-          <figure className="about-portrait relative aspect-[2.63/1] overflow-hidden bg-card">
+          <figure className="about-portrait relative mx-auto aspect-[4/5] w-full max-w-[26rem] overflow-hidden bg-card lg:mx-0 lg:ml-auto">
             <img
-              src="/about/editorial-portrait.jpg"
-              alt="Editorial black-and-white portrait representing Abdullah Shahid"
-              width={2035}
-              height={773}
+              src="/about/profile%20pic.png"
+              alt="Portrait of Ubaid Ur Rahman"
+              width={1254}
+              height={1254}
               loading="lazy"
               decoding="async"
               className="h-full w-full object-cover object-center grayscale"
@@ -57,12 +57,12 @@ export function About() {
         </div>
 
         <dl className="about-facts mt-14 grid border-y border-border sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
-          <Fact label="Focus">APIs / Auth / Data / Queues</Fact>
-          <Fact label="Experience">4+ years</Fact>
-          <Fact label="Location">Faisalabad, Pakistan</Fact>
+          <Fact label="Focus">React / Next.js / Tailwind</Fact>
+          <Fact label="Experience">2 years</Fact>
+          <Fact label="Location">{person.location}</Fact>
           <Fact label="Education">
             <span className="block">{education[0].degree}</span>
-            <span className="mt-1 block text-[0.62rem] text-muted-foreground">{education[1].degree}</span>
+            <span className="mt-1 block text-[0.62rem] text-muted-foreground">{education[0].school}</span>
           </Fact>
         </dl>
       </div>

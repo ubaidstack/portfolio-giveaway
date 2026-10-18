@@ -1,43 +1,32 @@
+import { ArrowUpRight01Icon } from "hugeicons-react"
 import { projects, type Project } from "@/lib/content"
 import { useGsap } from "@/lib/use-gsap"
 import { cn } from "@/lib/utils"
-
-const projectImages: Record<string, { src: string; alt: string }> = {
-  "marketplace-backend": {
-    src: "/projects/commerce-catalog.jpg",
-    alt: "Dark commerce catalog interface with inventory table and selected product details",
-  },
-  "consultation-platform": {
-    src: "/projects/healthcare-scheduling.jpg",
-    alt: "Healthcare scheduling interface with appointments and patient consultation details",
-  },
-}
 
 export function SelectedWork() {
   const ref = useGsap<HTMLElement>(({ gsap, reduced }) => {
     if (reduced) return
 
-    gsap.utils.toArray<HTMLElement>(".project-spread").forEach((project) => {
-      const copy = project.querySelectorAll(".project-copy")
-      const image = project.querySelector(".project-image")
+    gsap.utils.toArray<HTMLElement>(".work-block").forEach((block) => {
+      const copy = block.querySelectorAll(".work-copy")
+      const media = block.querySelectorAll(".work-media")
 
       gsap.from(copy, {
         y: 28,
         duration: 0.7,
         ease: "power4.out",
         stagger: 0.06,
-        scrollTrigger: { trigger: project, start: "top 82%" },
+        scrollTrigger: { trigger: block, start: "top 82%" },
       })
 
-      if (image) {
-        gsap.from(image, {
-          clipPath: "inset(0 0 100% 0)",
-          scale: 1.035,
-          duration: 1,
-          ease: "power4.inOut",
-          scrollTrigger: { trigger: image, start: "top 88%" },
-        })
-      }
+      gsap.from(media, {
+        clipPath: "inset(0 0 100% 0)",
+        scale: 1.035,
+        duration: 1,
+        ease: "power4.inOut",
+        stagger: 0.1,
+        scrollTrigger: { trigger: block, start: "top 85%" },
+      })
     })
   })
 
@@ -45,97 +34,107 @@ export function SelectedWork() {
     <section
       ref={ref}
       id="work"
-      className="relative scroll-mt-8 border-t border-border px-5 py-12 sm:px-8 lg:px-12"
+      className="relative scroll-mt-8 border-t border-border px-5 py-16 sm:px-8 lg:px-12 lg:py-24"
     >
-      <header className="mb-10 flex items-center gap-3">
+      <header className="mb-12 flex items-center gap-3 sm:mb-16">
         <span className="size-1.5 rounded-full bg-ember" aria-hidden />
         <span className="eyebrow text-muted-foreground">Selected Work</span>
       </header>
 
-      <div className="mx-auto max-w-[92rem] space-y-24 lg:space-y-20">
-        {projects.map((project, index) => (
-          <ProjectSpread key={project.id} project={project} reverse={index % 2 === 1} />
+      <div className="mx-auto max-w-[92rem] space-y-20 sm:space-y-28">
+        {projects.map((project) => (
+          <ProjectBlock key={project.id} project={project} />
         ))}
       </div>
     </section>
   )
 }
 
-function ProjectSpread({ project, reverse }: { project: Project; reverse: boolean }) {
-  const media = projectImages[project.id]
-
+function ProjectBlock({ project }: { project: Project }) {
   return (
-    <article id={project.id} className="project-spread scroll-mt-12">
-      <div
-        className={cn(
-          "grid gap-10 lg:items-end lg:gap-16",
-          reverse
-            ? "lg:grid-cols-[minmax(18rem,.42fr)_minmax(0,.58fr)]"
-            : "lg:grid-cols-[minmax(0,.58fr)_minmax(18rem,.42fr)]",
-        )}
-      >
-        {reverse ? (
-          <>
-            <ProjectCopy project={project} />
-            <ProjectImage media={media} className="lg:aspect-[2/1]" />
-          </>
-        ) : (
-          <>
-            <ProjectImage media={media} className="lg:aspect-[2/1]" />
-            <ProjectCopy project={project} />
-          </>
-        )}
+    <article id={project.id} className="work-block scroll-mt-12 border-t border-border pt-12 sm:pt-16 first:border-t-0 first:pt-0">
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,.62fr)_minmax(14rem,.38fr)] lg:items-end lg:gap-16">
+        <div className="work-copy">
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-xs text-ember">{project.index}</span>
+            <span className="h-3 w-px bg-border" aria-hidden />
+            <span className="eyebrow text-muted-foreground">{project.category}</span>
+          </div>
+          <h3 className="display mt-5 max-w-[18ch] text-[2rem] leading-[1.02] text-foreground sm:text-[clamp(2.1rem,3vw,3rem)] sm:leading-[0.96]">
+            {project.name}
+          </h3>
+          <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">
+            {project.built}
+          </p>
+        </div>
+
+        <div className="work-copy flex flex-col gap-5 lg:items-end lg:text-right">
+          <TechList project={project} />
+          <LiveLink url={project.url} />
+        </div>
       </div>
+
+      <Gallery screenshots={project.screenshots} name={project.name} className="mt-10 sm:mt-12" />
     </article>
   )
 }
 
-function ProjectCopy({ project }: { project: Project }) {
+function Gallery({
+  screenshots,
+  name,
+  className,
+}: {
+  screenshots: string[]
+  name: string
+  className?: string
+}) {
   return (
-    <div className="project-copy lg:pb-2">
-      <span className="font-mono text-xs text-ember">{project.index}</span>
-      <h3 className="display mt-5 max-w-[13ch] text-[2.15rem] leading-[0.98] text-foreground sm:text-[clamp(2.65rem,4.1vw,4.7rem)] sm:leading-[0.94]">
-        {project.name}
-      </h3>
-      <div className="mt-8 max-w-md border-t border-border pt-5">
-        <Meta label={project.category} value={project.built} />
-      </div>
-      <div className="mt-8 hidden gap-8 sm:grid sm:grid-cols-2">
-        <Meta label="My role" value={project.role} />
-        <TechList project={project} />
-      </div>
+    <div
+      className={cn(
+        "-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:gap-5 sm:px-8 lg:mx-0 lg:px-0 [scrollbar-width:thin]",
+        className,
+      )}
+    >
+      {screenshots.map((src, i) => (
+        <figure
+          key={src}
+          className="work-media group relative aspect-[16/9] w-[68vw] shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-ember/50 motion-reduce:transform-none motion-reduce:transition-none sm:w-[40vw] lg:w-[28rem] xl:w-[32rem]"
+        >
+          <img
+            src={src}
+            alt={`${name} — screenshot ${i + 1}`}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+          />
+          <figcaption className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-border bg-background/70 px-2 py-1 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted-foreground backdrop-blur-sm">
+            {String(i + 1).padStart(2, "0")} / {String(screenshots.length).padStart(2, "0")}
+          </figcaption>
+        </figure>
+      ))}
     </div>
   )
 }
 
-function ProjectImage({ media, className }: { media: { src: string; alt: string }; className?: string }) {
+function LiveLink({ url, className }: { url: string; className?: string }) {
   return (
-    <figure className={cn("project-image group relative aspect-[3/2] overflow-hidden bg-card", className)}>
-      <img
-        src={media.src}
-        alt={media.alt}
-        width={1536}
-        height={1024}
-        loading="lazy"
-        decoding="async"
-        className="h-full w-full object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-[1.018] motion-reduce:transition-none"
-      />
-    </figure>
-  )
-}
-
-function Meta({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="project-copy">
-      <p className="eyebrow mb-3 text-muted-foreground">{label}</p>
-      <p className="text-sm leading-relaxed text-muted-foreground">{value}</p>
-    </div>
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={cn(
+        "inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-ember transition-colors duration-300 hover:text-foreground",
+        className,
+      )}
+    >
+      Live demo <ArrowUpRight01Icon className="size-3.5" />
+    </a>
   )
 }
 
 function TechList({ project }: { project: Project }) {
   return (
-    <div className="project-copy">
+    <div className="work-copy">
       <p className="eyebrow mb-3 text-muted-foreground">Technology</p>
       <p className="font-mono text-[0.68rem] leading-relaxed uppercase tracking-[0.1em] text-foreground">
         {project.tech.slice(0, 5).join(" / ")}

@@ -16,13 +16,15 @@ export function Experiments() {
     })
   })
 
+  if (experiments.length === 0) return null
+
   return (
     <Section
       id="experiments"
       index="02"
       eyebrow="Additional Work"
-      title="More systems I've built."
-      intro="Smaller backends built for real users."
+      title="Additional work."
+      intro="Projects outside the main selection."
     >
       <div ref={ref} className="border-y border-border">
         {experiments.map((e, index) => (

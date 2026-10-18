@@ -41,7 +41,7 @@ export function AppSidebar() {
               expanded ? "opacity-100" : "pointer-events-none w-0 overflow-hidden opacity-0",
             )}
           >
-            <span className="brand-mark">AS</span>
+            <span className="brand-mark">UR</span>
             <span
               className={cn(
                 "whitespace-nowrap text-sm font-semibold tracking-tight transition-opacity duration-150 motion-reduce:transition-none",

@@ -1,55 +1,57 @@
 // ───────────────────────────────────────────────────────────────
-// Single content source — all data drawn from Abdullah Shahid's
+// Single content source — all data drawn from Ubaid Ur Rahman.
 // No invented metrics, testimonials, or projects.
+// Fields marked "to be confirmed" are placeholders awaiting input.
 // ───────────────────────────────────────────────────────────────
 
 export const person = {
-  name: "Abdullah Shahid",
-  initials: "AS",
-  role: "Backend Software Engineer",
-  shortRole: "Backend Engineer",
-  location: "Faisalabad, Pakistan",
-  email: "abdullahbinshahid287@gmail.com",
-  yearsExperience: "4+",
+  name: "Ubaid Ur Rahman",
+  initials: "UR",
+  brand: "UBAIDSTACK",
+  role: "Full Stack Developer",
+  shortRole: "Full Stack Developer",
+  location: "Peshawar, KPK, Pakistan",
+  email: "ubaidking2008@gmail.com",
+  phone: "03195907416",
+  yearsExperience: "2",
   status: "Available for focused collaborations",
   social: {
-    linkedin: "https://www.linkedin.com/in/abdullahshd/",
-    github: "https://github.com/mabdshd",
+    github: "https://github.com/rahman-khan-star",
   },
   positioning:
-    "I build reliable Laravel backends that stay easy to change.",
+    "I build fast, responsive web applications with React, Next.js, and TypeScript.",
   intro: [
-    "I build backend systems that stay correct under load.",
-    "I focus on clear permissions, scalable queries, and maintainable code.",
+    "I build responsive, component-based web interfaces.",
+    "I care about clean code, clear structure, and reliable delivery.",
   ],
 } as const
 
 export const heroStats = [
-  { value: "4+", label: "Years in production Laravel" },
-  { value: "5", label: "Domains shipped — commerce to healthcare" },
-  { value: "End-to-end", label: "Ownership of backend modules" },
+  { value: "2", label: "Years of experience" },
+  { value: "4", label: "Projects shown below" },
+  { value: "Full stack", label: "Frontend to deployment" },
 ] as const
 
 export const heroCapabilities = [
   {
-    label: "Data layer",
-    value: "MySQL · MongoDB · Redis · Elasticsearch",
+    label: "Frontend",
+    value: "React.js · Next.js · TypeScript",
   },
   {
-    label: "Secure systems",
-    value: "OAuth 2.0 · JWT · Sanctum · RBAC · 2FA",
+    label: "Languages",
+    value: "JavaScript · TypeScript · HTML · CSS",
   },
   {
-    label: "Reliable delivery",
-    value: "Queues · retries · CI/CD · Docker",
+    label: "Tooling",
+    value: "Tailwind CSS · Git & GitHub · Vercel",
   },
 ] as const
 
 export const productionDomains = [
-  "COMMERCE",
-  "MARKETPLACES",
-  "HEALTHCARE",
-  "FITNESS",
+  "TRAVEL",
+  "EDUCATION",
+  "TRADING",
+  "CAFE",
 ] as const
 
 // ── Selected work ──────────────────────────────────────────────
@@ -57,6 +59,7 @@ export type Project = {
   id: string
   index: string
   name: string
+  url: string
   category: string
   problem: string
   built: string
@@ -64,42 +67,91 @@ export type Project = {
   tech: string[]
   challenge: string
   result: string
+  /** Real screenshots served from /public, in display order. */
+  screenshots: string[]
   featured?: boolean
 }
 
 export const projects: Project[] = [
   {
-    id: "marketplace-backend",
+    id: "travel-agency-website",
     index: "01",
-    name: "Marketplace & E-commerce Backend",
-    category: "Production commerce platform",
+    name: "Travel Agency Website",
+    url: "https://waditours.vercel.app/",
+    category: "Website",
+    problem: "Details to be confirmed.",
+    built: "Project details to be confirmed.",
+    role: "To be confirmed.",
+    tech: ["To be confirmed"],
+    challenge: "To be confirmed.",
+    result: "To be confirmed.",
+    screenshots: [
+      "/travel-agency-1.png.png",
+      "/travel-agency-2.png.png",
+      "/travel-agency-3.png.png",
+      "/travel-agency-4.png.png",
+      "/travel-agency-5.png.png",
+      "/travel-agency-6.png.png",
+    ],
     featured: true,
-    problem:
-      "A growing marketplace backend had become risky to change.",
-    built:
-      "Built catalog, orders, identity, search, payments, caching, and queues.",
-    role: "Owned REST APIs and backend modules end-to-end.",
-    tech: ["Laravel", "MySQL", "MongoDB", "Redis", "Elasticsearch", "Stripe", "PayPal"],
-    challenge:
-      "Separated core logic from requests and third-party services.",
-    result:
-      "Cleaner boundaries, faster data paths, and safer releases.",
   },
   {
-    id: "consultation-platform",
+    id: "quiz-study-platform",
     index: "02",
-    name: "Doctor Appointment & Consultation Platform",
-    category: "Healthcare scheduling system",
-    problem:
-      "Unclear consultation states made the client experience unpredictable.",
-    built:
-      "Built scheduling, roles, records, permissions, and video-call APIs.",
-    role: "Defined the API contract and workflow logic.",
-    tech: ["Laravel", "MySQL", "RBAC", "Zoom API"],
-    challenge:
-      "Made states and access rules explicit.",
-    result:
-      "Predictable workflows and a reliable client contract.",
+    name: "MDCAT Quiz & Study Platform",
+    url: "https://mdcat-platform.vercel.app/",
+    category: "Web application",
+    problem: "Details to be confirmed.",
+    built: "Project details to be confirmed.",
+    role: "To be confirmed.",
+    tech: ["To be confirmed"],
+    challenge: "To be confirmed.",
+    result: "To be confirmed.",
+    screenshots: [
+      "/mdcat-platform-1.png.jpg",
+      "/mdcat-platform-2.png.jpg",
+      "/mdcat-platform-3.png.jpg",
+    ],
+  },
+  {
+    id: "ai-trading-signal-dashboard",
+    index: "03",
+    name: "Zavyro Trading Signal Dashboard",
+    url: "https://zavyro-signal-provider-bot.vercel.app/",
+    category: "Dashboard",
+    problem: "Details to be confirmed.",
+    built: "Project details to be confirmed.",
+    role: "To be confirmed.",
+    tech: ["To be confirmed"],
+    challenge: "To be confirmed.",
+    result: "To be confirmed.",
+    screenshots: [
+      "/zavyro-dashboard-1.png.jpg",
+      "/zavyro-dashboard-2.png.jpg",
+      "/zavyro-dashboard-3.png.jpg",
+      "/zavyro-dashboard-4.png.jpg",
+      "/zavyro-dashboard-5.png.jpg",
+      "/zavyro-dashboard-6.png.jpg",
+    ],
+  },
+  {
+    id: "cafe-website",
+    index: "04",
+    name: "Cafe Website",
+    url: "https://cafe-psi-wine.vercel.app/",
+    category: "Website",
+    problem: "Details to be confirmed.",
+    built: "Project details to be confirmed.",
+    role: "To be confirmed.",
+    tech: ["To be confirmed"],
+    challenge: "To be confirmed.",
+    result: "To be confirmed.",
+    screenshots: [
+      "/cafe-website-1.png.jpg",
+      "/cafe-website-2.png.jpg",
+      "/cafe-website-3.png.jpg",
+      "/cafe-website-4.png.jpg",
+    ],
   },
 ]
 
@@ -116,88 +168,58 @@ export type Capability = {
 
 export const capabilities: Capability[] = [
   {
-    id: "laravel",
-    title: "Laravel Engineering",
+    id: "frontend",
+    title: "Frontend Development",
     summary:
-      "Laravel applications built for real delivery pressure.",
+      "Responsive, component-based interfaces built with modern React tooling.",
     builds: [
-      "REST APIs and backend modules",
-      "Service and module boundaries",
-      "Validation, OOP, MVC, SOLID",
+      "Component-based UIs with React.js",
+      "Server-rendered and static apps with Next.js",
+      "Typed, maintainable code with TypeScript",
     ],
-    tech: ["PHP", "Laravel", "REST", "OOP", "MVC", "SOLID"],
-    example: "Marketplace & e-commerce backend",
-    ownership: "Owns backend modules end-to-end",
+    tech: ["React.js", "Next.js", "JavaScript", "TypeScript"],
+    example: "To be confirmed",
+    ownership: "To be confirmed",
   },
   {
-    id: "data-search",
-    title: "Data & Search",
+    id: "styling",
+    title: "Styling & UI",
     summary:
-      "Fast, dependable schemas, queries, cache, and search.",
+      "Clean, responsive layouts from semantic markup to utility styling.",
     builds: [
-      "Schema design and migrations",
-      "Query and index refinement",
-      "Full-text and faceted search",
+      "Semantic structure with HTML",
+      "Responsive layouts with CSS",
+      "Utility-first styling with Tailwind CSS",
     ],
-    tech: ["MySQL", "MongoDB", "Redis", "Elasticsearch"],
-    example: "Catalog, ordering, and search at scale",
-    ownership: "Improves production data paths directly",
+    tech: ["HTML", "CSS", "Tailwind CSS"],
+    example: "To be confirmed",
+    ownership: "To be confirmed",
   },
   {
-    id: "security",
-    title: "Security & Access",
+    id: "version-control",
+    title: "Version Control",
     summary:
-      "Authentication and access rules that scale with the product.",
+      "Organized, collaborative development with Git and GitHub.",
     builds: [
-      "OAuth 2.0, JWT, Sanctum, Passport",
-      "Role-based access control",
-      "Two-factor authentication",
+      "Branching and commit workflows with Git",
+      "Collaboration and code hosting on GitHub",
     ],
-    tech: ["OAuth 2.0", "JWT", "Sanctum", "Passport", "RBAC", "2FA"],
-    example: "Healthcare records & permissions",
-    ownership: "Defines access rules and auth flows",
+    tech: ["Git", "GitHub"],
+    example: "To be confirmed",
+    ownership: "To be confirmed",
   },
   {
-    id: "async",
-    title: "Async & Reliability",
+    id: "deployment",
+    title: "Deployment",
     summary:
-      "Queues, retries, and visible failure handling.",
+      "Shipping and hosting projects on Vercel.",
     builds: [
-      "Queued and background processing",
-      "Retries and failure handling",
-      "Caching and production debugging",
+      "Deploying front-end projects with Vercel",
+      "Managing hosted deployments",
     ],
-    tech: ["Queues", "Redis", "Cache", "Retries"],
-    example: "Payments & integration workflows",
-    ownership: "Owns failure paths, not just happy paths",
-  },
-  {
-    id: "integrations",
-    title: "Integrations & Payments",
-    summary:
-      "Clean integrations for payments and third-party services.",
-    builds: [
-      "Payments: Stripe, PayPal, Hyperwallet",
-      "Communication: Zoom, Twilio, Pusher",
-      "Third-party API adapters",
-    ],
-    tech: ["Stripe", "PayPal", "Hyperwallet", "Zoom", "Twilio", "Pusher"],
-    example: "Marketplace payment & notification flows",
-    ownership: "Isolates third-party concerns cleanly",
-  },
-  {
-    id: "delivery",
-    title: "Delivery & Infrastructure",
-    summary:
-      "Safe, frequent delivery with CI/CD and containers.",
-    builds: [
-      "Git and Git Flow workflows",
-      "CI/CD pipelines",
-      "Docker-based environments",
-    ],
-    tech: ["Git", "Git Flow", "Docker", "GitHub Actions", "GitLab CI/CD"],
-    example: "Continuous delivery under live traffic",
-    ownership: "Agile, collaborative delivery",
+    tech: ["Vercel"],
+    example: "To be confirmed",
+    ownership: "To be confirmed",
   },
 ]
 
@@ -216,66 +238,18 @@ export type Role = {
 
 export const experience: Role[] = [
   {
-    company: "Inspire Uplift",
-    position: "Laravel Backend Developer",
-    start: "2023-02",
+    company: "Employer to be confirmed",
+    position: "Full Stack Developer",
+    start: "",
     end: null,
-    period: "Feb 2023 — Present",
-    location: "Production commerce · Marketplace",
+    period: "2 years experience",
+    location: "Peshawar, KPK, Pakistan",
     overview:
-      "Production e-commerce and marketplace systems with connected data, search, payment, identity, and integration workflows.",
+      "Employer, dates, and detailed responsibilities to be confirmed.",
     responsibilities: [
-      "Own APIs for catalog, orders, auth, search, payments, and integrations.",
-      "Create clear service and module boundaries.",
-      "Improve queries, indexes, caching, and search.",
-      "Build RBAC, 2FA, queues, retries, and failure handling.",
+      "Responsibilities to be confirmed.",
     ],
-    tech: ["Laravel", "MySQL", "MongoDB", "Redis", "Elasticsearch", "Stripe", "PayPal"],
-  },
-  {
-    company: "EWDTech",
-    position: "Laravel Developer",
-    start: "2022-11",
-    end: "2022-12",
-    period: "Nov 2022 — Dec 2022",
-    location: "E-commerce · Inventory · POS",
-    overview:
-      "Delivered Laravel features across e-commerce, inventory, and point-of-sale workflows.",
-    responsibilities: [
-      "Built Laravel features spanning e-commerce, inventory, and point-of-sale.",
-      "Collaborated with frontend developers on APIs and data contracts.",
-    ],
-    tech: ["Laravel", "REST APIs"],
-  },
-  {
-    company: "SJ Empowers (Pvt) Ltd",
-    position: "Junior Laravel Developer",
-    start: "2022-07",
-    end: "2022-09",
-    period: "Jul 2022 — Sep 2022",
-    location: "Fitness · Mobile",
-    overview:
-      "Backend features and REST APIs for a fitness mobile application.",
-    responsibilities: [
-      "Built backend features and REST APIs for a fitness mobile application.",
-      "Implemented personalized plans and progress-tracking workflows.",
-    ],
-    tech: ["Laravel", "REST APIs"],
-  },
-  {
-    company: "360Brains",
-    position: "Laravel Developer Intern",
-    start: "2021-08",
-    end: "2021-10",
-    period: "Aug 2021 — Oct 2021",
-    location: "Foundations",
-    overview:
-      "Developed practical foundations in PHP, Laravel, and backend engineering.",
-    responsibilities: [
-      "Built foundations in PHP, Laravel, and the Eloquent ORM.",
-      "Practiced MVC, database schemas, and migrations.",
-    ],
-    tech: ["PHP", "Laravel", "Eloquent", "MVC"],
+    tech: ["React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Git", "GitHub", "Vercel"],
   },
 ]
 
@@ -314,62 +288,45 @@ export const processSteps = [
 ] as const
 
 // ── Experiments / additional work ──────────────────────────────
-export const experiments = [
-  {
-    name: "Gym Journey",
-    kind: "Fitness backend",
-    body: "REST APIs for personalized fitness plans, progress tracking, and mobile workflows.",
-    tech: ["Laravel", "REST APIs", "Mobile"],
-  },
-  {
-    name: "Fertilizing & Seeding Helper",
-    kind: "Planning backend",
-    body: "Backend workflows translating crop and soil inputs into actionable planning guidance.",
-    tech: ["Laravel", "Workflows"],
-  },
-] as const
+// No additional projects were provided for this section.
+export const experiments: { name: string; kind: string; body: string; tech: string[] }[] = []
 
 // ── Education ──────────────────────────────────────────────────
 export const education = [
   {
-    degree: "M.S. Computer Science",
-    school: "National Textile University, Faisalabad",
-    period: "2024 — 2026 (expected)",
-  },
-  {
-    degree: "B.S. Computer Science",
-    school: "University of Engineering & Technology, Lahore",
-    period: "2018 — 2022",
+    degree: "DIT",
+    school: "Institution to be confirmed",
+    period: "Dates to be confirmed",
   },
 ] as const
 
 // ── Proof strip ────────────────────────────────────────────────
 export const proof = [
   {
-    label: "Domains shipped",
-    value: "Commerce · Marketplaces · Healthcare · Fitness",
+    label: "Focus",
+    value: "Frontend · Full stack · Deployment",
   },
   {
-    label: "Auth & security breadth",
-    value: "OAuth 2.0 · JWT · Sanctum · Passport · RBAC · 2FA",
+    label: "Frontend",
+    value: "React.js · Next.js · JavaScript · TypeScript",
   },
   {
-    label: "Integrations wired",
-    value: "Stripe · PayPal · Hyperwallet · Zoom · Twilio · Pusher",
+    label: "Styling & tooling",
+    value: "HTML · CSS · Tailwind CSS · Git & GitHub · Vercel",
   },
   {
     label: "Education",
-    value: "M.S. CS (in progress) · B.S. CS, UET Lahore",
+    value: "DIT",
   },
 ] as const
 
 // ── Contact ────────────────────────────────────────────────────
 export const projectTypes = [
-  "Backend system / API",
-  "Marketplace or e-commerce",
-  "Healthcare platform",
-  "Integration work",
-  "Maintenance & refactor",
+  "Website",
+  "Web application",
+  "Full stack project",
+  "Frontend development",
+  "Other",
 ] as const
 
 export const budgetRanges = [

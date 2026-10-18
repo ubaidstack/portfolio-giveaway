@@ -51,7 +51,7 @@ export function Contact() {
               Let's build something <span className="text-ember">reliable.</span>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Need a reliable API, marketplace, or platform? Let's talk.
+              Have a website, web app, or full stack project in mind? Let's talk.
             </p>
           </div>
 
@@ -82,6 +82,17 @@ export function Contact() {
             )}
           </div>
 
+          {/* phone */}
+          <div className="mt-8">
+            <p className="eyebrow mb-3 text-muted-foreground">Phone</p>
+            <a
+              href={`tel:${person.phone}`}
+              className="display text-xl text-foreground transition-colors duration-300 hover:text-ember sm:text-2xl"
+            >
+              {person.phone}
+            </a>
+          </div>
+
           {/* meta grid */}
           <dl className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border sm:grid-cols-2">
             <div className="bg-card p-5">
@@ -101,14 +112,6 @@ export function Contact() {
             <p className="eyebrow mb-3 text-muted-foreground">Elsewhere</p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={person.social.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-ghost-line"
-              >
-                LinkedIn <ArrowUpRight01Icon className="size-4" />
-              </a>
-              <a
                 href={person.social.github}
                 target="_blank"
                 rel="noreferrer"
@@ -127,7 +130,7 @@ export function Contact() {
             e.preventDefault()
             const data = new FormData(e.currentTarget)
             const body = [
-              "Hi Abdullah,",
+              "Hi Ubaid,",
               "",
               String(data.get("message") ?? ""),
               "",
