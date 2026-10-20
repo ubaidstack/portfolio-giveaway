@@ -26,3 +26,6 @@ dist-ssr
 
 # Agent / editor session artifacts
 .zcode/
+.vercel
+.env*
+!.env.example
