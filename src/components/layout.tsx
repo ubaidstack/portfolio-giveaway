@@ -1,6 +1,7 @@
 import { BottomBar } from "@/components/bottom-bar"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { TopBar } from "@/components/top-bar"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { useLenis } from "@/lib/use-lenis"
 import { person } from "@/lib/content"
@@ -23,6 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       {isMobile && <BottomBar />}
+      <WhatsAppButton />
     </div>
   )
 }

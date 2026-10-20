@@ -13,6 +13,8 @@ export const person = {
   location: "Peshawar, KPK, Pakistan",
   email: "ubaidking2008@gmail.com",
   phone: "03195907416",
+  whatsapp:
+    "https://wa.me/923195907416?text=Hi%21%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20with%20you.",
   yearsExperience: "2",
   status: "Available for focused collaborations",
   social: {
