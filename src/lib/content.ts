@@ -127,8 +127,29 @@ export const projects: Project[] = [
     presentation: "/medinova-clinic-presentation.pptx",
   },
   {
-    id: "quiz-study-platform",
+    id: "estateora-real-estate",
     index: "03",
+    name: "Estateora Real Estate",
+    url: "https://estateora-nine.vercel.app/",
+    category: "Real Estate Website",
+    problem: "Details to be confirmed.",
+    built:
+      "A modern, responsive real estate website for buying, renting, and selling property, with property search filters and a listing submission flow.",
+    role: "To be confirmed.",
+    tech: ["To be confirmed"],
+    challenge: "To be confirmed.",
+    result: "To be confirmed.",
+    screenshots: [
+      "/realstate-projrct (1).png",
+      "/realstate-projrct (2).png",
+      "/realstate-projrct (3).png",
+      "/realstate-projrct (4).png",
+      "/realstate-projrct (5).png",
+    ],
+  },
+  {
+    id: "quiz-study-platform",
+    index: "04",
     name: "MDCAT Quiz & Study Platform",
     url: "https://mdcat-platform.vercel.app/",
     category: "Web application",
@@ -146,7 +167,7 @@ export const projects: Project[] = [
   },
   {
     id: "ai-trading-signal-dashboard",
-    index: "04",
+    index: "05",
     name: "Zavyro Trading Signal Dashboard",
     url: "https://zavyro-signal-provider-bot.vercel.app/",
     category: "Dashboard",
@@ -167,7 +188,7 @@ export const projects: Project[] = [
   },
   {
     id: "cafe-website",
-    index: "05",
+    index: "06",
     name: "Cafe Website",
     url: "https://cafe-psi-wine.vercel.app/",
     category: "Website",
