@@ -28,7 +28,7 @@ export const person = {
 
 export const heroStats = [
   { value: "2", label: "Years of experience" },
-  { value: "4", label: "Projects shown below" },
+  { value: "5", label: "Projects shown below" },
   { value: "Full stack", label: "Frontend to deployment" },
 ] as const
 
@@ -49,6 +49,7 @@ export const heroCapabilities = [
 
 export const productionDomains = [
   "TRAVEL",
+  "HEALTHCARE",
   "EDUCATION",
   "TRADING",
   "CAFE",
@@ -69,6 +70,12 @@ export type Project = {
   result: string
   /** Real screenshots served from /public, in display order. */
   screenshots: string[]
+  /** Optional label for the live link. */
+  ctaLabel?: string
+  /** Optional case study file served from /public. */
+  presentation?: string
+  /** Give the first screenshot a larger preview in the gallery. */
+  widePreview?: boolean
   featured?: boolean
 }
 
@@ -96,8 +103,33 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "quiz-study-platform",
+    id: "medinova-clinic",
     index: "02",
+    name: "MediNova Clinic",
+    url: "https://medinovaclinic.vercel.app/#home",
+    category: "Healthcare Website / Web Development",
+    problem: "Details to be confirmed.",
+    built:
+      "A modern, responsive healthcare website designed to present medical services, introduce doctors, and guide visitors toward appointment requests.",
+    role: "To be confirmed.",
+    tech: [],
+    challenge: "To be confirmed.",
+    result: "To be confirmed.",
+    screenshots: [
+      "/medinova-clinic-project (1).png",
+      "/medinova-clinic-project (2).png",
+      "/medinova-clinic-project (3).png",
+      "/medinova-clinic-project (4).png",
+      "/medinova-clinic-project (5).png",
+      "/medinova-clinic-project (6).png",
+    ],
+    ctaLabel: "Visit Site",
+    presentation: "/medinova-clinic-presentation.pptx",
+    widePreview: true,
+  },
+  {
+    id: "quiz-study-platform",
+    index: "03",
     name: "MDCAT Quiz & Study Platform",
     url: "https://mdcat-platform.vercel.app/",
     category: "Web application",
@@ -115,7 +147,7 @@ export const projects: Project[] = [
   },
   {
     id: "ai-trading-signal-dashboard",
-    index: "03",
+    index: "04",
     name: "Zavyro Trading Signal Dashboard",
     url: "https://zavyro-signal-provider-bot.vercel.app/",
     category: "Dashboard",
@@ -136,7 +168,7 @@ export const projects: Project[] = [
   },
   {
     id: "cafe-website",
-    index: "04",
+    index: "05",
     name: "Cafe Website",
     url: "https://cafe-psi-wine.vercel.app/",
     category: "Website",

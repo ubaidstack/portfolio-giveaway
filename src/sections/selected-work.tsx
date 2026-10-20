@@ -1,4 +1,4 @@
-import { ArrowUpRight01Icon } from "hugeicons-react"
+import { ArrowUpRight01Icon, FileDownloadIcon } from "hugeicons-react"
 import { projects, type Project } from "@/lib/content"
 import { useGsap } from "@/lib/use-gsap"
 import { cn } from "@/lib/utils"
@@ -70,11 +70,16 @@ function ProjectBlock({ project }: { project: Project }) {
 
         <div className="work-copy flex flex-col gap-5 lg:items-end lg:text-right">
           <TechList project={project} />
-          <LiveLink url={project.url} />
+          <ProjectLinks project={project} />
         </div>
       </div>
 
-      <Gallery screenshots={project.screenshots} name={project.name} className="mt-10 sm:mt-12" />
+      <Gallery
+        screenshots={project.screenshots}
+        name={project.name}
+        wideFirst={project.widePreview}
+        className="mt-10 sm:mt-12"
+      />
     </article>
   )
 }
@@ -82,23 +87,28 @@ function ProjectBlock({ project }: { project: Project }) {
 function Gallery({
   screenshots,
   name,
+  wideFirst,
   className,
 }: {
   screenshots: string[]
   name: string
+  wideFirst?: boolean
   className?: string
 }) {
   return (
     <div
       className={cn(
-        "-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:gap-5 sm:px-8 lg:mx-0 lg:px-0 [scrollbar-width:thin]",
+        "-mx-5 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:gap-5 sm:px-8 lg:mx-0 lg:px-0 [scrollbar-width:thin]",
         className,
       )}
     >
       {screenshots.map((src, i) => (
         <figure
           key={src}
-          className="work-media group relative aspect-[16/9] w-[68vw] shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-ember/50 motion-reduce:transform-none motion-reduce:transition-none sm:w-[40vw] lg:w-[28rem] xl:w-[32rem]"
+          className={cn(
+            "work-media group relative aspect-[16/9] w-[68vw] shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-ember/50 motion-reduce:transform-none motion-reduce:transition-none sm:w-[40vw] lg:w-[28rem] xl:w-[32rem]",
+            wideFirst && i === 0 && "w-[86vw] sm:w-[72vw] lg:w-[48rem] xl:w-[58rem]",
+          )}
         >
           <img
             src={src}
@@ -116,7 +126,42 @@ function Gallery({
   )
 }
 
-function LiveLink({ url, className }: { url: string; className?: string }) {
+function ProjectLinks({ project }: { project: Project }) {
+  if (!project.presentation) {
+    return <LiveLink url={project.url} label={project.ctaLabel} />
+  }
+
+  return (
+    <div className="work-copy flex flex-col gap-3 sm:flex-row lg:justify-end">
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noreferrer"
+        className="btn-ember group/btn"
+      >
+        {project.ctaLabel ?? "Visit site"}
+        <ArrowUpRight01Icon className="size-4 transition-transform duration-300 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+      </a>
+      <a
+        href={project.presentation}
+        download
+        className="btn-ghost-line"
+      >
+        View Presentation <FileDownloadIcon className="size-4" />
+      </a>
+    </div>
+  )
+}
+
+function LiveLink({
+  url,
+  label = "Live demo",
+  className,
+}: {
+  url: string
+  label?: string
+  className?: string
+}) {
   return (
     <a
       href={url}
@@ -127,12 +172,14 @@ function LiveLink({ url, className }: { url: string; className?: string }) {
         className,
       )}
     >
-      Live demo <ArrowUpRight01Icon className="size-3.5" />
+      {label} <ArrowUpRight01Icon className="size-3.5" />
     </a>
   )
 }
 
 function TechList({ project }: { project: Project }) {
+  if (project.tech.length === 0) return null
+
   return (
     <div className="work-copy">
       <p className="eyebrow mb-3 text-muted-foreground">Technology</p>
