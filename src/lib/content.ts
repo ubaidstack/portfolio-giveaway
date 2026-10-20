@@ -74,8 +74,6 @@ export type Project = {
   ctaLabel?: string
   /** Optional case study file served from /public. */
   presentation?: string
-  /** Give the first screenshot a larger preview in the gallery. */
-  widePreview?: boolean
   featured?: boolean
 }
 
@@ -125,7 +123,6 @@ export const projects: Project[] = [
     ],
     ctaLabel: "Visit Site",
     presentation: "/medinova-clinic-presentation.pptx",
-    widePreview: true,
   },
   {
     id: "quiz-study-platform",

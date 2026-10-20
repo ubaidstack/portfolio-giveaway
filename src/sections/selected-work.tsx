@@ -74,12 +74,7 @@ function ProjectBlock({ project }: { project: Project }) {
         </div>
       </div>
 
-      <Gallery
-        screenshots={project.screenshots}
-        name={project.name}
-        wideFirst={project.widePreview}
-        className="mt-10 sm:mt-12"
-      />
+      <Gallery screenshots={project.screenshots} name={project.name} className="mt-10 sm:mt-12" />
     </article>
   )
 }
@@ -87,28 +82,23 @@ function ProjectBlock({ project }: { project: Project }) {
 function Gallery({
   screenshots,
   name,
-  wideFirst,
   className,
 }: {
   screenshots: string[]
   name: string
-  wideFirst?: boolean
   className?: string
 }) {
   return (
     <div
       className={cn(
-        "-mx-5 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:gap-5 sm:px-8 lg:mx-0 lg:px-0 [scrollbar-width:thin]",
+        "-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:gap-5 sm:px-8 lg:mx-0 lg:px-0 [scrollbar-width:thin]",
         className,
       )}
     >
       {screenshots.map((src, i) => (
         <figure
           key={src}
-          className={cn(
-            "work-media group relative aspect-[16/9] w-[68vw] shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-ember/50 motion-reduce:transform-none motion-reduce:transition-none sm:w-[40vw] lg:w-[28rem] xl:w-[32rem]",
-            wideFirst && i === 0 && "w-[86vw] sm:w-[72vw] lg:w-[48rem] xl:w-[58rem]",
-          )}
+          className="work-media group relative aspect-[16/9] w-[68vw] shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-ember/50 motion-reduce:transform-none motion-reduce:transition-none sm:w-[40vw] lg:w-[28rem] xl:w-[32rem]"
         >
           <img
             src={src}
