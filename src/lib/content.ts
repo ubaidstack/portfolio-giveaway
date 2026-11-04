@@ -30,7 +30,7 @@ export const person = {
 
 export const heroStats = [
   { value: "2", label: "Years of experience" },
-  { value: "5", label: "Projects shown below" },
+  { value: "8", label: "Projects shown below" },
   { value: "Full stack", label: "Frontend to deployment" },
 ] as const
 
@@ -55,6 +55,8 @@ export const productionDomains = [
   "EDUCATION",
   "TRADING",
   "CAFE",
+  "ECOMMERCE",
+  "SAAS",
 ] as const
 
 // ── Selected work ──────────────────────────────────────────────
@@ -130,7 +132,7 @@ export const projects: Project[] = [
     id: "estateora-real-estate",
     index: "03",
     name: "Estateora Real Estate",
-    url: "https://estateora-nine.vercel.app/",
+    url: "https://estateorarealstate.vercel.app/",
     category: "Real Estate Website",
     problem: "Details to be confirmed.",
     built:
@@ -140,11 +142,11 @@ export const projects: Project[] = [
     challenge: "To be confirmed.",
     result: "To be confirmed.",
     screenshots: [
-      "/realstate-projrct (1).png",
-      "/realstate-projrct (2).png",
-      "/realstate-projrct (3).png",
-      "/realstate-projrct (4).png",
-      "/realstate-projrct (5).png",
+      "/realstate-1.jpg",
+      "/realstate-2.jpg",
+      "/realstate-3.jpg",
+      "/realstate-4.jpg",
+      "/realstate-5.jpg",
     ],
   },
   {
@@ -204,6 +206,58 @@ export const projects: Project[] = [
       "/cafe-website-3.png.jpg",
       "/cafe-website-4.png.jpg",
     ],
+  },
+  {
+    id: "haven-furniture-store",
+    index: "07",
+    name: "Haven Furniture Store",
+    url: "https://haven-furniture-nu.vercel.app/",
+    category: "E-commerce Website",
+    problem: "Details to be confirmed.",
+    built:
+      "A furniture storefront with a product catalogue, category browsing, best-seller and collection sections, and cart, shipping and returns messaging.",
+    role: "To be confirmed.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    challenge: "To be confirmed.",
+    result: "To be confirmed.",
+    screenshots: [
+      "/ecomerceweb (1).png",
+      "/ecomerceweb (2).png",
+      "/ecomerceweb (3).png",
+      "/ecomerceweb (4).png",
+      "/ecomerceweb (5).png",
+      "/ecomerceweb (6).png",
+      "/ecomerceweb (7).png",
+      "/ecomerceweb (8).png",
+    ],
+  },
+  {
+    id: "invoicelauncher-saas",
+    index: "08",
+    name: "InvoicLauncher",
+    url: "https://invoiclauncher.vercel.app/",
+    category: "SaaS Platform",
+    problem:
+      "Freelancers and small teams often track clients, invoices, payments, and expenses across separate tools.",
+    built:
+      "A full invoicing SaaS dashboard that brings clients, projects, invoices, quotations, payments, expenses, reports, and subscription management into one workspace — with search, filters, status tracking, and revenue analytics.",
+    role: "Frontend development · UI implementation",
+    tech: ["React", "Vite", "Tailwind CSS", "Recharts", "Lucide"],
+    challenge:
+      "Keeping dense financial data readable with consistent status states, clear tables, and charts that stay usable on smaller screens.",
+    result:
+      "A responsive, product-style dashboard covering the full invoicing workflow in one place.",
+    screenshots: [
+      "/invoice maker  (1).png",
+      "/invoice maker  (2).png",
+      "/invoice maker  (3).png",
+      "/invoice maker  (4).png",
+      "/invoice maker  (5).png",
+      "/invoice maker  (6).png",
+      "/invoice maker  (7).png",
+      "/invoice maker  (8).png",
+    ],
+    ctaLabel: "Visit Site",
   },
 ]
 
