@@ -23,7 +23,11 @@ export function Hero() {
   })
 
   return (
-    <section ref={ref} id="intro" className="grain relative isolate min-h-svh scroll-mt-8 overflow-hidden">
+    <section
+      ref={ref}
+      id="intro"
+      className="grain relative isolate flex min-h-[calc(100svh-3rem)] flex-col scroll-mt-8 overflow-hidden md:min-h-[calc(100svh-4rem)]"
+    >
       <div className="hero-chrome flex items-center justify-between border-b border-border px-5 py-4 sm:px-8 lg:px-12">
         <div className="flex items-center gap-3">
           <span className="eyebrow text-ember">{person.initials}</span>
@@ -36,24 +40,24 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="px-5 pb-8 pt-12 sm:px-8 sm:pb-10 sm:pt-16 lg:px-12 lg:pb-12 lg:pt-20">
-        <div className="mx-auto max-w-[92rem]">
-          <div className="hero-chrome mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
+      <div className="flex flex-1 flex-col px-5 pb-5 pt-6 [@media(max-height:760px)]:pb-3 [@media(max-height:760px)]:pt-5 sm:px-8 sm:pb-6 sm:pt-8 lg:px-12 lg:pb-5 lg:pt-9">
+        <div className="mx-auto flex w-full max-w-[92rem] flex-1 flex-col">
+          <div className="hero-chrome mb-4 flex flex-wrap items-center justify-between gap-4 border-b border-border pb-3 sm:mb-5">
             <span className="eyebrow text-foreground">{person.role}</span>
             <span className="eyebrow text-muted-foreground">{person.yearsExperience} years · {person.location}</span>
           </div>
 
-          <h1 className="display w-full max-w-[15ch] text-[clamp(3.25rem,8.15vw,8.75rem)] text-foreground">
+          <h1 className="display w-full max-w-[18ch] text-[clamp(2.5rem,min(6.6vw,14svh),6.5rem)] text-foreground">
             <span className="line-mask"><span className="hero-line-inner block">Full stack web apps</span></span>
             <span className="line-mask"><span className="hero-line-inner block"><span className="text-ember">built end</span> to end.</span></span>
           </h1>
 
-          <div className="mt-8 grid gap-8 border-t border-border pt-6 lg:grid-cols-[minmax(0,.78fr)_minmax(20rem,.22fr)] lg:items-end">
+          <div className="mt-6 grid gap-8 border-t border-border pt-5 lg:grid-cols-[minmax(0,.78fr)_minmax(20rem,.22fr)] lg:items-end">
             <div>
               <p className="hero-support max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                 {person.positioning}
               </p>
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-5 flex flex-wrap gap-3">
                 <Magnetic>
                   <a href="#work" className="hero-action btn-ember group/btn">
                     Explore selected work
@@ -71,31 +75,33 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="hero-archive mt-14 overflow-hidden border border-border bg-card sm:mt-18">
-            <div className="hero-archive-inner grid min-h-[18rem] lg:grid-cols-[minmax(0,.64fr)_minmax(18rem,.36fr)]">
-              <div className="relative flex flex-col justify-between overflow-hidden border-b border-border p-6 sm:p-8 lg:border-b-0 lg:border-r">
-                <div className="pointer-events-none absolute -bottom-[.16em] -right-[.05em] select-none font-mono text-[clamp(7rem,18vw,18rem)] font-semibold leading-none tracking-[-0.08em] text-foreground/[0.035]" aria-hidden>
-                  01
-                </div>
-                <div className="relative flex items-center justify-between gap-6">
-                  <span className="eyebrow text-ember">Current feature</span>
-                  <span className="eyebrow text-muted-foreground">{projects[0].category}</span>
-                </div>
-                <div className="relative mt-16 max-w-4xl sm:mt-20">
-                  <p className="display text-[clamp(2rem,5vw,4.75rem)] text-foreground">{projects[0].name}</p>
-                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">{projects[0].built}</p>
-                </div>
-              </div>
-
-              <div className="grid divide-y divide-border">
-                {heroCapabilities.map((capability) => (
-                  <div key={capability.label} className="hero-proof flex items-start justify-between gap-6 p-5 sm:p-6">
-                    <span className="text-sm font-semibold text-foreground">{capability.label}</span>
-                    <span className="max-w-[15rem] text-right font-mono text-[0.65rem] leading-relaxed text-muted-foreground">{capability.value}</span>
+          <div className="mt-auto pt-5 [@media(max-height:760px)]:pt-4 sm:pt-6">
+            <div className="hero-archive overflow-hidden border border-border bg-card">
+              <div className="hero-archive-inner grid min-h-[clamp(10.5rem,24svh,15rem)] lg:grid-cols-[minmax(0,.64fr)_minmax(18rem,.36fr)]">
+                <div className="relative flex flex-col justify-between overflow-hidden border-b border-border p-5 sm:p-6 lg:border-b-0 lg:border-r">
+                  <div className="pointer-events-none absolute -bottom-[.16em] -right-[.05em] select-none font-mono text-[clamp(5rem,11vw,11rem)] font-semibold leading-none tracking-[-0.08em] text-foreground/[0.035]" aria-hidden>
+                    01
                   </div>
-                ))}
-                <div className="hero-proof flex flex-wrap gap-x-4 gap-y-2 p-5 sm:p-6">
-                  {productionDomains.map((domain) => <span key={domain} className="eyebrow text-muted-foreground">{domain}</span>)}
+                  <div className="relative flex items-center justify-between gap-6">
+                    <span className="eyebrow text-ember">Current feature</span>
+                    <span className="eyebrow text-muted-foreground">{projects[0].category}</span>
+                  </div>
+                  <div className="relative mt-8 max-w-4xl sm:mt-10">
+                    <p className="display text-[clamp(1.75rem,3.4vw,3rem)] text-foreground">{projects[0].name}</p>
+                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">{projects[0].built}</p>
+                  </div>
+                </div>
+
+                <div className="grid divide-y divide-border">
+                  {heroCapabilities.map((capability) => (
+                    <div key={capability.label} className="hero-proof flex items-start justify-between gap-6 p-4 [@media(max-height:820px)]:p-3">
+                      <span className="text-sm font-semibold text-foreground">{capability.label}</span>
+                      <span className="max-w-[15rem] text-right font-mono text-[0.65rem] leading-relaxed text-muted-foreground">{capability.value}</span>
+                    </div>
+                  ))}
+                  <div className="hero-proof flex flex-wrap gap-x-4 gap-y-2 p-4 [@media(max-height:820px)]:p-3">
+                    {productionDomains.map((domain) => <span key={domain} className="eyebrow text-muted-foreground">{domain}</span>)}
+                  </div>
                 </div>
               </div>
             </div>
